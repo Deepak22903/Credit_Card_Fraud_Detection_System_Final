@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Credit Card
+{% endblock title %}
+
+{% block content %}
+{% load static %}
+
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <script>
+      const submitBtn = document.querySelector('#submit-btn');
+      const loadingScreen = document.querySelector('#loading-screen');
+
+      submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        loadingScreen.style.display = 'block';
+        // Perform your form validation and submission logic here
+        // Once done, redirect to the next page
+        window.location.href = 'next-page.html';
+      });
+    </script>
+
+</head>
+<body>
+<h1 style="text-align:center;">Fraud Detection</h1>
+<center>
+<form method="post" action="{% url 'classifier' %}">
+    {% csrf_token %}
+
+
+    <label for="v1">V1:</label>
+    <input type="text" name="v1" id="v1" required step="0.01">
+    <br>
+    <label for="v2">V2:</label>
+    <input type="text" name="v2" id="v2" required step="0.01">
+    <br>
+    <label for="v3">V3:</label>
+    <input type="text" name="v3" id="v3" required step="0.01">
+    <br>
+    <label for="v4">V4:</label>
+    <input type="text" name="v4" id="v4" required step="0.01">
+    <br>
+    <label for="v5">V5:</label>
+    <input type="text" name="v5" id="v5" required step="0.01">
+    <br>
+    <label for="v6">V6:</label>
+    <input type="text" name="v6" id="v6" required step="0.01">
+    <br>
+    <label for="v7">V7:</label>
+    <input type="text" name="v7" id="v7" required step="0.01">
+    <br>
+    <label for="v8">V8:</label>
+    <input type="text" name="v8" id="v8" required step="0.01">
+    <br>
+    <label for="v9">V9:</label>
+    <input type="text" name="v9" id="v9" required step="0.01">
+    <br>
+    <label for="v10">V10:</label>
+    <input type="text" name="v10" id="v10" required step="0.01">
+    <br>
+    <label for="v11">V11:</label>
+    <input type="text" name="v11" id="v11" required step="0.01">
+    <br>
+    <label for="v12">V12:</label>
+    <input type="text" name="v12" id="v12" required step="0.01">
+    <br>
+    <label for="v13">V13:</label>
+    <input type="text" name="v13" id="v13" required step="0.01">
+    <br>
+    <label for="v14">V14:</label>
+    <input type="text" name="v14" id="v14" required step="0.01">
+    <br>
+    <label for="v15">V15:</label>
+    <input type="text" name="v15" id="v15" required step="0.01">
+    <br>
+    <label for="v16">V16:</label>
+    <input type="text" name="v16" id="v16" required step="0.01">
+    <br>
+    <label for="v17">V17:</label>
+    <input type="text" name="v17" id="v17" required step="0.01">
+    <br>
+    <label for="v18">V18:</label>
+    <input type="text" name="v18" id="v18" required step="0.01">
+    <br>
+    <label for="v19">V19:</label>
+    <input type="text" name="v19" id="v19" required step="0.01">
+    <br>
+    <label for="v20">V20:</label>
+    <input type="text" name="v20" id="v20" required step="0.01">
+    <br>
+    <label for="v21">V21:</label>
+    <input type="text" name="v21" id="v21" required step="0.01">
+    <br>
+    <label for="v22">V22:</label>
+    <input type="text" name="v22" id="v22" required step="0.01">
+    <br>
+    <label for="v23">V23:</label>
+    <input type="text" name="v23" id="v23" required step="0.01">
+    <br>
+    <label for="v24">V24:</label>
+    <input type="text" name="v24" id="v24" required step="0.01">
+    <br>
+    <label for="v25">V25:</label>
+    <input type="text" name="v25" id="v25" required step="0.01">
+    <br>
+    <label for="v26">V26:</label>
+    <input type="text" name="v26" id="v26" required step="0.01">
+    <br>
+    <label for="v27">V27:</label>
+    <input type="text" name="v27" id="v27" required step="0.01">
+    <br>
+    <label for="v28">V28:</label>
+    <input type="text" name="v28" id="v28" required step="0.01">
+    <br>
+
+    <label for="amount">Amount:</label>
+    <input type="number" name="amount" id="amount" required>
+    <br>
+    <input type="submit" value="Predict" id="submit-button">
+</form>
+
+    <div id="loading-screen" style="display:none;">
+      <p>Checking if transaction is fraudulent or not</p>
+      <div class="progress-bar"></div>
+    </div>
+
+    </center>
+{% if prediction is not none %}
+{% if prediction == 1 %}
+<p>The transaction is fraudulent.</p>
+{% else %}
+<p>The transaction is not fraudulent.</p>
+{% endif %}
+{% endif %}
+</body>
+</html>
+
+{% endblock content %}
