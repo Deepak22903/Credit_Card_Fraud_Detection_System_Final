@@ -53,10 +53,14 @@ To get started with the Credit Card Fraud Detection System project, follow these
    ```bash
    pip install -r requirements.txt
    ```
+   or
+   ```bash
+   pip install --user -r requirements.txt
+   ```
 
-4. Explore the Jupyter notebooks in the `notebooks` directory to understand the project workflow.
+5. Explore the Jupyter notebooks in the `notebooks` directory to understand the project workflow.
 
-5. Run the Python scripts in the `src` directory to preprocess data, train models, and detect fraud.
+6. Run the Python scripts in the `src` directory to preprocess data, train models, and detect fraud.
 
 For detailed information on project setup, usage, and results, please refer to the documentation in the `documentation` directory.
 
